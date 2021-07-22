@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fin">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="aanar saami pronunciation dictionary, inari saami pronunciation dictionary">
+    <meta name="author" content="">
+
+    <title>Aanar Saami pronunciation dictionary</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/balloon.min.css">
+
+
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <link rel="prefetch" type="application/l10n" href="l10n/locales.ini" />
+  <script type="text/javascript" src="src/js/l10n.js"></script>
+  <script type="text/javascript">
+    function onLocalized() {
+      var l10n = document.webL10n,
+          textProp = document.body.textContent ? 'textContent' : 'innerText',
+          ui = {
+            l10n: document.getElementById('l10n').getElementsByTagName('textarea')[0],
+            json: document.getElementById('json').getElementsByTagName('textarea')[0],
+            lang: document.getElementsByTagName('select')[0]
+          };
+      ui.lang.value = l10n.getLanguage(); // not working with IE<9
+      ui.lang.onchange = function() {
+        l10n.setLanguage(this.value || this.options[this.selectedIndex].text);
+      };
+      ui.l10n[textProp] = l10n.getText();
+      ui.json[textProp] =
+        window.JSON ? JSON.stringify(l10n.getData(), undefined, 2) : 'no JSON support';
+    }
+    document.webL10n.ready(onLocalized);
+  </script>
+
+  <script type="text/javascript">
+    var s_lang = 'smn';
+    var t_lang = 'spl';
+    var lpair = s_lang+'-'+t_lang;
+    var direction = s_lang+'-'+t_lang;
+  </script>
+
+  <script type="text/javascript" src="src/js/config.js"></script>  
+
+</head>
+
+<body id="page-top" data-spy="scroll" onload="ajaxFunction(s_lang+'-'+t_lang+'-lr')">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header" style="margin-top:15px; margin-left:15px; margin-bottom:15px;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--a class="navbar-brand page-scroll" href="#page-top"-->
+                <span style="color:white">
+                  Anarâškielâ servi
+                </span>
+                <br/>
+                <span style="color:white">
+                   LOGO
+                </span>
+            </div>
+	    
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse" id="bs-example-navbar-collapse-1">
+
+	      <ul class="nav navbar-nav navbar-right">
+
+		    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+		
+                    <li>
+                        <a href="#page-top"><span data-l10n-id="home">Search</span></a>
+                    </li>
+                    <li>
+                        <a href="#div_about_dict" class="page-scroll"><span data-l10n-id="about_dict">About the dictionary</span></a>
+                    </li>
+                    <li>
+                        <a href="#div_about_lang" class="page-scroll"><span data-l10n-id="about_lang">About Aaanar Saami</span></a>
+                    </li>
+                    <li>
+                        <a href="#div_contact" class="page-scroll"><span data-l10n-id="contact">Contact</span></a>
+		    </li>
+		    
+		    <li>
+		    <select name="selectLang" class="form-control input-sm" style="width: 80px; padding: 0 0px; margin-top:15px; margin-left:15px; height:20px;" id="inputGroupSelectLang">
+		      <!--option value="- Select language -" disabled selected>- Select language -</option-->
+		      <option value="smn">Anarâškielâ</option>
+		      <option value="fin">Suomi</option>
+		    </select>
+		  </li>
+		</ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container content-section text-left">
+
+        <div class="row">
+
+	<div id="right_div" style="margin-top:10px;">
+	  <span style="color:Black;font-weight:bold; font-size: 15px; margin-top:10px; margin-left:10px; margin-right:10px; margin-bottom:10px;" data-l10n-id="dict">Aanar Saami pronunciation dictionary</span>
+	  <br/>
+	  <br/>
+	  <form class="translation" method="post">
+	  <fieldset>
+	    <label class="llabel" id="src_label">lemma</labeL>
+	    <input class="swap" type="button"
+	    onClick="swapLanguages();" value="&#x21c4;" title="växla språk"/>
+	    <label class="llabel" id="trg_label">word form</labeL>
+	  <br/>
+	  <span style="margin-right:1.01em; display:inline-block; color:Gray;font-weight:normal; font-size: 15px; font-style: italic;" data-l10n-id="search">Search</span>
+	  <input id="word" name="word" type="text" onkeyup="delayLookUp(this.value,true,s_lang+'-'+t_lang+'-lr');"/>
+	  <br/>
+	  </fieldset>
+	  </form>
+	  
+	<div id="message"></div>
+	<br/>
+	<div id="message2"></div>
+	<div id="result" style="overflow:auto; width:800px;height:500px;"></div>
+	<script src="src/js/lookup.js" type="text/javascript"></script>
+	</div>
+
+	    </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- About dict Section -->
+    <section id="div_about_dict" class="container content-section text-left">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+               <h2><span data-l10n-id="about_dict">About the dictionary</span></h2>
+	      <p><span data-l10n-id="dict_description">Some dictionary descripton</span></p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About lang Section -->
+    <section id="div_about_lang" class="container content-section text-left">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2><span data-l10n-id="about_lang">About Aaanar Saami</span></h2>
+	      <p><span data-l10n-id="lang_description">Some language description</span></p>
+	    </div>
+        </div>
+    </section>
+	
+	
+	
+	    <!-- Contact Section -->
+    <section id="div_contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2><span data-l10n-id="contact">Contact</span></h2>
+                <p><span data-l10n-id="contact_info">Some text</span></p>
+                <p><a href="mailto:ciprian.gerstenberger@gmail.com">ciprian.gerstenberger@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Anarâškielâ servi ry 2020</p>
+        </div>
+    </footer>
+	
+    <div id="data">
+    <div id="l10n">
+    </div>
+    <div id="json">
+    </div>
+    </div>
+
+    
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+});
+</script>
+
+</body>
+
+</html>
